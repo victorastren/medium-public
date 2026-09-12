@@ -1,5 +1,5 @@
 __pycache__/
 *.pyc
 data/
-images/
+geneva_spatial_interpolation/images/
 .DS_Store
