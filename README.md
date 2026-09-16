@@ -25,6 +25,18 @@ First-principles physics models and visualization suite for PSR B1913+16:
 
 For setup, execution, and unit tests, please refer to the project [README](hulse_taylor_pulsar_discovery/README.md).
 
+### [Beyond Kepler: Perturbations and the Stability of the Solar System](beyond_kepler_solar_system_stability/)
+Celestial mechanics models and visualization suite for planetary perturbation theory:
+- Instantaneous osculating orbit & two-timescale dynamical separation
+- Heliocentric disturbing function geometry & 4-stage analytical progression
+- Orbital phase averaging & the Solar System timescale hierarchy
+- Regularized eccentricity vector $(k, h)$ in the complex plane
+- Laplace-Lagrange secular eigenvalue theory & collective normal modes
+- Resonant 5:2 commensurability & the Great Inequality of Jupiter and Saturn
+- Classical stability criteria vs. nonlinear chaotic diffusion
+
+For setup, execution, and unit tests, please refer to the project [README](beyond_kepler_solar_system_stability/README.md).
+
 ---
 
 ## 📄 License
