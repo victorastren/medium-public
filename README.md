@@ -37,6 +37,17 @@ Celestial mechanics models and visualization suite for planetary perturbation th
 
 For setup, execution, and unit tests, please refer to the project [README](beyond_kepler_solar_system_stability/README.md).
 
+### [Navier–Stokes Blow-Up: Fluid Regularity and Vortex Dynamics](navier_stokes_blow_up/)
+Mathematical models and visualization suite for fluid mechanics, regularity criteria, and blow-up dynamics:
+- Eulerian local vs. Lagrangian convective acceleration & material derivative
+- 3D vortex filament stretching, strain alignment, and core thinning
+- 2D vorticity conservation & exact vanishing of vortex stretching
+- Finite kinetic energy concentration with divergent velocity gradients
+- Navier–Stokes scaling symmetries, critical spaces, and $L^3$ critical threshold
+- Anisotropic core contraction and singular blow-up architecture
+
+For setup, execution, and unit tests, please refer to the project [README](navier_stokes_blow_up/README.md).
+
 ---
 
 ## 📄 License
