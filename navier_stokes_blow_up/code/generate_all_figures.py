@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Master runner script to generate all 6 scientific infographics
+Master runner script to generate all 7 scientific infographics
 for the Navier-Stokes Blow-Up and Regularity article.
 
 Can be run directly from any directory:
@@ -21,6 +21,7 @@ DEFAULT_IMAGES_DIR = PROJECT_DIR / "images"
 from generate_material_derivative_infographic import generate_material_derivative_infographic
 from generate_vortex_stretching_infographic import generate_vortex_stretching_infographic
 from generate_vortex_stretching_2d_infographic import generate_vortex_stretching_2d_infographic
+from generate_energy_balance_infographic import generate_energy_balance_infographic
 from generate_energy_concentration_infographic import generate_energy_concentration_infographic
 from generate_scaling_limits_infographic import generate_scaling_limits_infographic
 from generate_shrinking_vortex_infographic import generate_shrinking_vortex_infographic
@@ -29,9 +30,10 @@ FIGURE_GENERATORS = [
     ("1. Eulerian vs Lagrangian Derivative", "eulerian_vs_lagrangian_derivative.png", generate_material_derivative_infographic),
     ("2. 3D Vortex Stretching Mechanism", "vortex_stretching_mechanism.png", generate_vortex_stretching_infographic),
     ("3. 2D Vanishing Stretching", "vortex_stretching_2d_vanishing.png", generate_vortex_stretching_2d_infographic),
-    ("4. Finite Energy Concentration", "finite_energy_concentration.png", generate_energy_concentration_infographic),
-    ("5. Scaling Limits & Supercriticality", "navier_stokes_scaling_limits.png", generate_scaling_limits_infographic),
-    ("6. Shrinking Vortex Blow-Up", "navier_stokes_shrinking_vortex_blowup.png", generate_shrinking_vortex_infographic),
+    ("4. Energy Balance & Viscous Dissipation", "navier_stokes_energy_balance.png", generate_energy_balance_infographic),
+    ("5. Finite Energy Concentration", "finite_energy_concentration.png", generate_energy_concentration_infographic),
+    ("6. Scaling Limits & Supercriticality", "navier_stokes_scaling_limits.png", generate_scaling_limits_infographic),
+    ("7. Shrinking Vortex Blow-Up", "navier_stokes_shrinking_vortex_blowup.png", generate_shrinking_vortex_infographic),
 ]
 
 
@@ -51,7 +53,7 @@ def generate_all(output_dir=None):
 
     for idx, (title, filename, func) in enumerate(FIGURE_GENERATORS, start=1):
         target_path = output_dir / filename
-        print(f"\n[{idx}/6] Generating: {title}...")
+        print(f"\n[{idx}/{len(FIGURE_GENERATORS)}] Generating: {title}...")
         t0 = time.time()
         try:
             func(target_path)

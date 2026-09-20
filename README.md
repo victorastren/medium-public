@@ -42,6 +42,7 @@ Mathematical models and visualization suite for fluid mechanics, regularity crit
 - Eulerian local vs. Lagrangian convective acceleration & material derivative
 - 3D vortex filament stretching, strain alignment, and core thinning
 - 2D vorticity conservation & exact vanishing of vortex stretching
+- Energy balance, viscous dissipation sink, and $L^2$ global bounds
 - Finite kinetic energy concentration with divergent velocity gradients
 - Navier–Stokes scaling symmetries, critical spaces, and $L^3$ critical threshold
 - Anisotropic core contraction and singular blow-up architecture

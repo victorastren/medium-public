@@ -6,7 +6,7 @@ This directory contains the standalone Python codebase and visualization suite s
 
 ## 🗺️ Visual Architecture & Scientific Figures
 
-The project provides self-contained, publication-grade scripts generating all 6 core scientific figures from first principles:
+The project provides self-contained, publication-grade scripts generating all 7 core scientific figures from first principles:
 
 ### 1. [Eulerian vs. Lagrangian Material Derivative](code/generate_material_derivative_infographic.py)
 ![Eulerian vs. Lagrangian Material Derivative](images/eulerian_vs_lagrangian_derivative.png)
@@ -32,7 +32,21 @@ The project provides self-contained, publication-grade scripts generating all 6 
 
 ---
 
-### 4. [Finite Kinetic Energy Concentration](code/generate_energy_concentration_infographic.py)
+### 4. [Energy Balance and Viscous Dissipation](code/generate_energy_balance_infographic.py)
+![Energy Balance in Navier-Stokes](images/navier_stokes_energy_balance.png)
+* **Global Energy Balance**: Illustrates how the momentum equation terms govern the rate of change of total kinetic energy $E(t) = \frac{1}{2}\int_{\Omega} |\mathbf{u}|^2 d\mathbf{x}$:
+  $$\frac{dE}{dt} + \nu\int_{\Omega} |\nabla\mathbf{u}|^2\,d\mathbf{x} = \int_{\Omega} \mathbf{f}\cdot\mathbf{u}\,d\mathbf{x}$$
+* **Role of Each Term**:
+  * **Nonlinear Advection $(\mathbf{u}\cdot\nabla)\mathbf{u}$**: Purely redistributes kinetic energy across spatial scales and locations; its global integral vanishes identically ($\int_{\Omega} \mathbf{u}\cdot(\mathbf{u}\cdot\nabla)\mathbf{u}\,d\mathbf{x} = 0$).
+  * **Pressure Gradient $\nabla p$**: Acts as an instantaneous Lagrange multiplier enforcing incompressibility $\nabla\cdot\mathbf{u} = 0$; performs zero net global work under periodic or no-slip boundary conditions ($\int_{\Omega} \mathbf{u}\cdot\nabla p\,d\mathbf{x} = 0$).
+  * **Viscous Dissipation $\nu \Delta \mathbf{u}$**: Unconditionally acts as an energy dissipation sink, irreversibly converting kinetic energy into heat at rate $-\nu\int_{\Omega} |\nabla\mathbf{u}|^2 d\mathbf{x} \le 0$.
+  * **External Forcing $\mathbf{f}$**: Serves as the sole mechanism for kinetic energy injection via power input $\int_{\Omega} \mathbf{f}\cdot\mathbf{u}\,d\mathbf{x}$.
+* **Takeaway on Regularity**: Demonstrates why global $L^2$ energy control alone cannot prevent localized velocity concentration or finite-time gradient divergence.
+* **Script**: `code/generate_energy_balance_infographic.py`
+
+---
+
+### 5. [Finite Kinetic Energy Concentration](code/generate_energy_concentration_infographic.py)
 ![Finite Energy Concentration](images/finite_energy_concentration.png)
 * **Leray Energy Inequality vs. Point Singularity**: Visualizes the geometric compatibility between bounded global kinetic energy $\frac{1}{2}\|\mathbf{u}(t)\|_{L^2}^2 \le E_0 < \infty$ and catastrophic velocity gradient blow-up $\|\nabla \mathbf{u}(t)\|_{L^2}^2 \to \infty$.
 * **Shrinking Singular Shell**: A compact profile $u(r) = A e^{-(r/\sigma)^2}$ exhibits bounded total integral $\int |u|^2 dV \sim A^2 \sigma^3 = \text{const}$ while its spatial gradient scales as $\int |\nabla u|^2 dV \sim A^2 \sigma \sim \sigma^{-2} \to \infty$ as the core radius $\sigma \to 0$.
@@ -40,7 +54,7 @@ The project provides self-contained, publication-grade scripts generating all 6 
 
 ---
 
-### 5. [Navier–Stokes Scaling Symmetries and Criticality](code/generate_scaling_limits_infographic.py)
+### 6. [Navier–Stokes Scaling Symmetries and Criticality](code/generate_scaling_limits_infographic.py)
 ![Navier–Stokes Scaling Limits](images/navier_stokes_scaling_limits.png)
 * **Scale Invariance**: Explores the scaling transformation $\mathbf{u}_\lambda(x,t) = \lambda \mathbf{u}(\lambda x, \lambda^2 t)$ that preserves the unforced Navier–Stokes system.
 * **Subcritical vs. Supercritical Regimes**: Maps Lebesgue spaces $L^p(\mathbb{R}^3)$:
@@ -51,7 +65,7 @@ The project provides self-contained, publication-grade scripts generating all 6 
 
 ---
 
-### 6. [Shrinking Vortex Ring & Singularity Formation](code/generate_shrinking_vortex_infographic.py)
+### 7. [Shrinking Vortex Ring & Singularity Formation](code/generate_shrinking_vortex_infographic.py)
 ![Shrinking Vortex Blowup Construction](images/navier_stokes_shrinking_vortex_blowup.png)
 * **Dynamic Core Contraction**: Visualizes the finite-time blow-up mechanism where an intense vortex ring undergoes self-induced azimuthal stretching and anisotropic core collapse.
 * **Beale–Kato–Majda Condition**: Illustrates the divergence of peak enstrophy $\Omega(t) = \|\boldsymbol{\omega}(t)\|_{L^\infty} \sim (T^*-t)^{-1}$ and total strain rate along the vortex core as $t \to T^*$.
@@ -87,7 +101,7 @@ pip install -r requirements.txt
 ## 🚀 Usage
 
 ### Generate All Scientific Figures
-To re-render all 6 high-resolution publication figures into `images/`:
+To re-render all 7 high-resolution publication figures into `images/`:
 
 ```bash
 python3 code/generate_all_figures.py
@@ -100,6 +114,7 @@ Each script is completely self-contained and accepts an optional `--output` flag
 python3 code/generate_material_derivative_infographic.py
 python3 code/generate_vortex_stretching_infographic.py
 python3 code/generate_vortex_stretching_2d_infographic.py
+python3 code/generate_energy_balance_infographic.py
 python3 code/generate_energy_concentration_infographic.py
 python3 code/generate_scaling_limits_infographic.py
 python3 code/generate_shrinking_vortex_infographic.py
@@ -123,7 +138,7 @@ The test suite validates:
 1. **Material Derivative Kinematics**: Exact balance between total, local, and advective acceleration in 1D/2D nozzle flows.
 2. **2D Vortex Stretching Invariance**: Machine-precision cancellation $(\boldsymbol{\omega}\cdot\nabla)\mathbf{u} = 0$ for arbitrary planar vector fields.
 3. **Scaling Critical Exponents**: Lebesgue norm scaling $\|\mathbf{u}_\lambda\|_{L^p} = \lambda^{1 - 3/p} \|\mathbf{u}\|_{L^p}$ across dimension $d=3$.
-4. **Rendering Integrity**: Isolated generation of all 6 figures in temporary workspaces, confirming PNG magic headers, non-zero file sizes (> 40 KB), and minimum resolution requirements.
+4. **Rendering Integrity**: Isolated generation of all 7 figures in temporary workspaces, confirming PNG magic headers, non-zero file sizes (> 40 KB), and minimum resolution requirements.
 
 ---
 

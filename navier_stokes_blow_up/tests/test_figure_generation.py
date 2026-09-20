@@ -9,7 +9,7 @@ Validates:
 1. Material derivative decomposition kinematics (local + advective).
 2. Vortex stretching identity: non-zero in 3D, identically vanishing in 2D.
 3. Scaling symmetry and energy-supercriticality scaling exponents in 3D.
-4. Isolated generation of all 6 scientific infographics to verify PNG format,
+4. Isolated generation of all 7 scientific infographics to verify PNG format,
    non-zero file size, valid magic header, and proper image dimensions.
 """
 
@@ -30,6 +30,7 @@ if str(CODE_DIR) not in sys.path:
 from generate_material_derivative_infographic import generate_material_derivative_infographic
 from generate_vortex_stretching_infographic import generate_vortex_stretching_infographic
 from generate_vortex_stretching_2d_infographic import generate_vortex_stretching_2d_infographic
+from generate_energy_balance_infographic import generate_energy_balance_infographic
 from generate_energy_concentration_infographic import generate_energy_concentration_infographic
 from generate_scaling_limits_infographic import generate_scaling_limits_infographic
 from generate_shrinking_vortex_infographic import generate_shrinking_vortex_infographic
@@ -129,17 +130,22 @@ class TestNavierStokesPhysicsAndFigures(unittest.TestCase):
             self._verify_single_figure(tmp_dir, generate_vortex_stretching_2d_infographic,
                                        "vortex_stretching_2d_vanishing.png", 2000, 1000)
 
-    def test_04_energy_concentration_generation(self):
+    def test_04_energy_balance_generation(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            self._verify_single_figure(tmp_dir, generate_energy_balance_infographic,
+                                       "navier_stokes_energy_balance.png", 2000, 1000)
+
+    def test_05_energy_concentration_generation(self):
         with tempfile.TemporaryDirectory() as tmp_dir:
             self._verify_single_figure(tmp_dir, generate_energy_concentration_infographic,
                                        "finite_energy_concentration.png", 2000, 1000)
 
-    def test_05_scaling_limits_generation(self):
+    def test_06_scaling_limits_generation(self):
         with tempfile.TemporaryDirectory() as tmp_dir:
             self._verify_single_figure(tmp_dir, generate_scaling_limits_infographic,
                                        "navier_stokes_scaling_limits.png", 2000, 1000)
 
-    def test_06_shrinking_vortex_generation(self):
+    def test_07_shrinking_vortex_generation(self):
         with tempfile.TemporaryDirectory() as tmp_dir:
             self._verify_single_figure(tmp_dir, generate_shrinking_vortex_infographic,
                                        "navier_stokes_shrinking_vortex_blowup.png", 2000, 1000)
