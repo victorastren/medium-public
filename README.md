@@ -15,6 +15,18 @@ A 4-part series covering spatial interpolation methods:
 
 For setup and run instructions, please refer to the project [README](geneva_spatial_interpolation/README.md).
 
+### [Validating Spatial Interpolation: Beyond LOOCV](validating_spatial_interpolation/)
+Cross-validation protocols and spatial benchmark suite for spatial interpolation:
+- Ground truth synthetic Geneva microclimate & irregularly sampled sensor network
+- Spatial autocorrelation bias in standard random CV & Leave-One-Out (LOOCV)
+- Spatial block holdout & quadrant-based extrapolation benchmarking
+- Buffered Leave-One-Out cross-validation across varying exclusion radii
+- Point process topology analysis (uniform random, clustered, transects, regular grids)
+- First-principles NumPy/SciPy solvers (Polynomial surface, IDW, Thin-Plate Spline RBF, Ordinary Kriging)
+- Empirical error degradation vs. distance to nearest observation station
+
+For setup, reproduction benchmarks, and unit tests, please refer to the project [README](validating_spatial_interpolation/README.md).
+
 ### [The Discovery of the Hulse-Taylor Binary Pulsar](hulse_taylor_pulsar_discovery/)
 First-principles physics models and visualization suite for PSR B1913+16:
 - Pulsar lighthouse geometry & orbital Doppler modulation
