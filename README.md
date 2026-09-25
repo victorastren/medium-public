@@ -61,6 +61,16 @@ Mathematical models and visualization suite for fluid mechanics, regularity crit
 
 For setup, execution, and unit tests, please refer to the project [README](navier_stokes_blow_up/README.md).
 
+### [Dynamical Systems: From Equations to Geometry](dynamical_systems_interpreting_motion/)
+Mathematical models and geometric visualization suite for dynamical systems theory and nonlinear mechanics:
+- Physical pendulum kinematics mapped into state space and directional vector fields
+- Global Hamiltonian phase portrait: libration loops, rotation circulation, and homoclinic separatrix
+- Local equilibrium classification via Jacobian eigenvalues: nodes, saddles, centers, and spirals
+- Energy dissipation, phase-flow contraction, and emergence of stable attractors
+- Poincaré surface of section, continuous flow reduction, and discrete return maps
+
+For setup, execution, and unit tests, please refer to the project [README](dynamical_systems_interpreting_motion/README.md).
+
 ---
 
 ## 📄 License
