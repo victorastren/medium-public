@@ -61,6 +61,18 @@ Mathematical models and visualization suite for fluid mechanics, regularity crit
 
 For setup, execution, and unit tests, please refer to the project [README](navier_stokes_blow_up/README.md).
 
+### [From Newton to Hamilton: The Road to Modern Dynamics](the_road_to_modern_dynamics/)
+First-principles mathematical models and scientific visualization suite for analytical mechanics and Hamiltonian dynamics:
+- Cartesian constraints vs. generalized coordinates & reduction of degrees of freedom
+- Historical analytical mechanics synthesis (Euler, d'Alembert, and Lagrange)
+- Multi-system taxonomy across 1D and 2D holonomic configuration spaces
+- Lagrangian configuration space $TQ$ vs. Hamiltonian phase space $T^*Q$ via Legendre transformation
+- Nonlinear pendulum phase space $(\theta, p_\theta)$: libration, rotation, and homoclinic separatrix
+- Hamilton–Jacobi canonical theory & optical-mechanical wave analogy (Hamilton & Jacobi)
+- Celestial perturbation limits and the transition to Poincaré's qualitative dynamics
+
+For setup, execution, and unit tests, please refer to the project [README](the_road_to_modern_dynamics/README.md).
+
 ### [Dynamical Systems: From Equations to Geometry](dynamical_systems_interpreting_motion/)
 Mathematical models and geometric visualization suite for dynamical systems theory and nonlinear mechanics:
 - Physical pendulum kinematics mapped into state space and directional vector fields
