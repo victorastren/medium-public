@@ -1,6 +1,6 @@
 # From Newton to Hamilton: The Road to Modern Dynamics
 
-This directory contains the standalone Python codebase and visualization suite supporting the technical article on **From Newton to Hamilton: The Road to Modern Dynamics**, published under **Stellar Priors**.
+This directory contains the standalone Python codebase and visualization suite supporting the technical article on [**From Newton to Hamilton: The Road to Modern Dynamics**](https://thequantasticjournal.com/from-newton-to-hamilton-the-road-to-modern-dynamics-e9151ddabf50), published in [**The Quantastic Journal**](https://thequantasticjournal.com/).
 
 ---
 

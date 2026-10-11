@@ -83,6 +83,17 @@ Mathematical models and geometric visualization suite for dynamical systems theo
 
 For setup, execution, and unit tests, please refer to the project [README](dynamical_systems_interpreting_motion/README.md).
 
+### [The 1922 Solar Eclipse: A More Precise Test of General Relativity](1922_solar_eclipse_expedition/)
+Astrophysical models and scientific visualization suite for the Wallal light-deflection experiment:
+- Gravitational starlight deflection geometry & hyperbolic fall-off ($\delta\theta \propto 1/\rho$)
+- Trajectory comparison: Newtonian corpuscular vs. Einstein general-relativistic light deflection
+- Wallal astrometric experimental design: Tahiti reference field vs. eclipse totality
+- Twin Einstein camera optical architecture: 15-foot and 5-foot polar-axis cameras
+- Intermediate-plate differential measurement technique & outer reference boundary ($r > 2^\circ$)
+- Empirical solar-limb deflection results: Campbell & Trumpler (1923, 1928) vs. theoretical predictions
+
+For setup, execution, and unit tests, please refer to the project [README](1922_solar_eclipse_expedition/README.md).
+
 ---
 
 ## 📄 License
