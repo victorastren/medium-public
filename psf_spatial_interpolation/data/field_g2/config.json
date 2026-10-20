@@ -1,0 +1,48 @@
+{
+  "scenario": "G2_complex_ground",
+  "description": "Realistic ground-based PSF field with optical aberrations (defocus, astigmatism, coma) and correlated atmospheric fluctuations",
+  "simulation_parameters": {
+    "psf_model": "aberrated_elliptical_moffat",
+    "base_fwhm_pixels": 3.4,
+    "optical_defocus_coeff": 1.2,
+    "optical_astigmatism_coeff": 0.1,
+    "optical_coma_coeff": 0.08,
+    "beta_base": 3.5,
+    "matern_nu": 1.5,
+    "matern_correlation_length": 0.2,
+    "turbulence_std_fwhm": 0.15,
+    "turbulence_std_ellipticity": 0.02,
+    "turbulence_std_beta": 0.25,
+    "field_seed": 500,
+    "coordinate_sampling_seed": 42
+  },
+  "dataset_geometry": {
+    "stamp_size": 48,
+    "subpixel_factor": 4,
+    "focal_plane_bounds": [
+      0.0,
+      1.0,
+      0.0,
+      1.0
+    ],
+    "margin": 0.02,
+    "n_train": 320,
+    "n_val": 80,
+    "n_test": 200,
+    "normalization": "unit_total_flux",
+    "data_type": "float64"
+  },
+  "noise_model": {
+    "type": "noiseless_reference",
+    "note": "psf_train_observed is identical to psf_train_true in this initial benchmark"
+  },
+  "measurement_parameters": {
+    "moment_weight": "circular_gaussian",
+    "sigma_w_pixels": 3.5,
+    "ellipticity_convention": "GREAT10: e1=(Q11-Q22)/(Q11+Q22), e2=2*Q12/(Q11+Q22), R2=Q11+Q22",
+    "fixed_center": [
+      23.5,
+      23.5
+    ]
+  }
+}

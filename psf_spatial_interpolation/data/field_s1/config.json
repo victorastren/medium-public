@@ -1,0 +1,48 @@
+{
+  "scenario": "S1_space_diffraction",
+  "description": "Diffraction-based space telescope optical PSF with central obscuration, spider struts, and spatially varying optical aberrations",
+  "optical_parameters": {
+    "optical_model": "Matrix Fourier Transform (MFT, Soummer et al. 2007)",
+    "pupil_resolution": 128,
+    "central_obscuration_ratio": 0.3,
+    "spider_strut_width": 0.025,
+    "sampling_s_detector_pixels_per_lambda_over_D": 2.5,
+    "zernike_aberrations": {
+      "c4_defocus": "0.02 + 0.08 * ((x-0.5)^2 + (y-0.5)^2)",
+      "c5_astigmatism_oblique": "2 * 0.04 * (x-0.5) * (y-0.5)",
+      "c6_astigmatism_vertical": "0.04 * ((x-0.5)^2 - (y-0.5)^2)",
+      "c7_coma_x": "0.05 * (x-0.5)",
+      "c8_coma_y": "0.05 * (y-0.5)",
+      "c11_spherical": "0.02"
+    }
+  },
+  "dataset_geometry": {
+    "stamp_size": 48,
+    "subpixel_factor": 4,
+    "focal_plane_bounds": [
+      0.0,
+      1.0,
+      0.0,
+      1.0
+    ],
+    "margin": 0.02,
+    "n_train": 320,
+    "n_val": 80,
+    "n_test": 200,
+    "normalization": "unit_total_flux",
+    "data_type": "float64"
+  },
+  "noise_model": {
+    "type": "noiseless_reference",
+    "note": "psf_train_observed is identical to psf_train_true in this initial benchmark"
+  },
+  "measurement_parameters": {
+    "moment_weight": "circular_gaussian",
+    "sigma_w_pixels": 3.5,
+    "ellipticity_convention": "GREAT10: e1=(Q11-Q22)/(Q11+Q22), e2=2*Q12/(Q11+Q22), R2=Q11+Q22",
+    "fixed_center": [
+      23.5,
+      23.5
+    ]
+  }
+}

@@ -1,6 +1,6 @@
-# Stellar Priors - Article Code Collections
+# Article Code Collections
 
-Welcome! This repository hosts code implementations and clean, runnable models supporting technical articles published under the **Stellar Priors** publication.
+Welcome! This repository hosts code implementations and clean, runnable models supporting technical articles published under the **Stellar Priors** and other publications.
 
 ## 📁 Repository Projects
 
@@ -93,6 +93,19 @@ Astrophysical models and scientific visualization suite for the Wallal light-def
 - Empirical solar-limb deflection results: Campbell & Trumpler (1923, 1928) vs. theoretical predictions
 
 For setup, execution, and unit tests, please refer to the project [README](1922_solar_eclipse_expedition/README.md).
+
+
+### [Interpolating Stars: Reconstructing Telescope Point Spread Functions](psf_spatial_interpolation/)
+Astronomical data reduction, spatial statistics, and scientific visualization suite for telescope PSF modeling in weak gravitational lensing:
+- Astronomical forward convolution model ($I_{\mathrm{obs}} = G * P_{\mathbf{r}} + N$) & weak lensing cosmic shear systematics
+- Three physical observing regimes: smooth seeing-dominated Moffat (G1), optical aberrations + atmospheric turbulence (G2), and space-based diffraction pupil optics (S1)
+- Dimensionality reduction via Principal Component Analysis (EigenPSFs) isolating spatial variation from pixel grids
+- Benchmark evaluation across 7 spatial interpolation algorithms: Polynomial Regression, IDW, Thin-Plate RBF Splines, Ordinary Kriging, Universal Kriging (drift), MLP, and Random Forest
+- Orthogonal error decomposition: separating PCA truncation error from spatial coefficient interpolation error
+- Cosmological shape measurement metrics: Gaussian-weighted quadrupole moments ($Q_{ij}$), ellipticity components ($e_1, e_2$), squared size ($R^2$), multiplicative slope biases ($m_1, m_2$), additive offsets ($c_1, c_2$), and mean fractional size bias ($b_{R^2}$)
+- Diagnostic visualization suite: focal-plane field grids, reconstruction fidelity scatter, and 21-model forest plots with nominal 95% confidence intervals
+
+For setup, execution, benchmark replication, and unit tests, please refer to the project [README](psf_spatial_interpolation/README.md).
 
 ---
 
