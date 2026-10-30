@@ -101,8 +101,19 @@ MILESTONES = [
         "light": (245, 243, 255),    # #f5f3ff
     },
     {
-        "id": "lorenz",
+        "id": "kam",
         "position": "above",
+        "name": "Kolmogorov–Arnold–Moser",
+        "year": "1954–1963",
+        "work": "Persistence of invariant tori",
+        "work_italic": False,
+        "concept": "Regular quasiperiodic motion\nsurvives small perturbations",
+        "accent": (3, 105, 161),     # Deep Sky / Cobalt Blue (#0369a1)
+        "light": (240, 249, 255),    # #f0f9ff
+    },
+    {
+        "id": "lorenz",
+        "position": "below",
         "name": "Lorenz",
         "year": "1963",
         "work": "Deterministic Nonperiodic Flow",
@@ -113,12 +124,12 @@ MILESTONES = [
     },
     {
         "id": "smale",
-        "position": "below",
+        "position": "above",
         "name": "Smale",
         "year": "1965–1967",
-        "work": "Horseshoe & homoclinic theorem",
+        "work": "Horseshoe &\nhomoclinic theorem",
         "work_italic": False,
-        "concept": "Geometric Foundations of Chaos",
+        "concept": "Geometric Foundations\nof Chaos",
         "accent": (4, 120, 87),      # Deep Emerald (#047857 - topological)
         "light": (236, 253, 245),    # #ecfdf5
     },
@@ -152,8 +163,8 @@ def create_timeline(output_path=None):
     output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    # Canvas dimensions: 1920 x 680 px for 8 milestones
-    W, H = 1920, 680
+    # Canvas dimensions: 2000 x 680 px for 9 milestones
+    W, H = 2000, 680
     img = Image.new('RGBA', (W, H), BG_COLOR)
     draw = ImageDraw.Draw(img)
 
@@ -183,18 +194,18 @@ def create_timeline(output_path=None):
 
     # 2. Timeline Axis Geometry
     spine_y = 392
-    start_x = 180
-    end_x = 1720
-    step_x = (end_x - start_x) / 7  # 7 intervals for 8 milestones (220 px)
+    start_x = 160
+    end_x = 1840
+    step_x = (end_x - start_x) / (len(MILESTONES) - 1)
 
     # Draw continuous horizontal rail
-    draw.line([(start_x - 60, spine_y), (end_x + 60, spine_y)], fill=SPINE_COLOR, width=5)
+    draw.line([(start_x - 50, spine_y), (end_x + 50, spine_y)], fill=SPINE_COLOR, width=5)
 
     # Terminal arrow pointing right
     draw.polygon([
-        (end_x + 80, spine_y),
-        (end_x + 60, spine_y - 8),
-        (end_x + 60, spine_y + 8)
+        (end_x + 70, spine_y),
+        (end_x + 50, spine_y - 8),
+        (end_x + 50, spine_y + 8)
     ], fill=(100, 116, 139, 255))
 
     # Render each milestone
@@ -211,7 +222,7 @@ def create_timeline(output_path=None):
         font_ref = font_work_italic if m["work_italic"] else font_work_roman
 
         if is_above:
-            # UPPER MILESTONE (Poincaré 1881, Lyapunov 1892, Birkhoff 1913, Lorenz 1963)
+            # UPPER MILESTONE (Poincaré 1881, Lyapunov 1892, Birkhoff 1913, KAM 1954–1963, Smale 1965–1967)
             cur_y = 132
 
             # Surname (36pt bold Navy)
@@ -237,11 +248,13 @@ def create_timeline(output_path=None):
                 draw.text((cx - w_w / 2, cur_y), w_line, font=font_ref, fill=PROMINENT_SLATE)
                 cur_y += 28 if w_idx < len(work_lines) - 1 else 34
 
-            # Concept line (22pt bold NAVY #0f172a)
-            c_bbox = draw.textbbox((0, 0), m["concept"], font=font_concept)
-            c_w = c_bbox[2] - c_bbox[0]
-            draw.text((cx - c_w / 2, cur_y), m["concept"], font=font_concept, fill=NAVY)
-            cur_y += 30
+            # Concept line (single or multiline, 22pt bold NAVY #0f172a)
+            concept_lines = m["concept"].split("\n")
+            for c_idx, c_line in enumerate(concept_lines):
+                c_bbox = draw.textbbox((0, 0), c_line, font=font_concept)
+                c_w = c_bbox[2] - c_bbox[0]
+                draw.text((cx - c_w / 2, cur_y), c_line, font=font_concept, fill=NAVY)
+                cur_y += 28 if c_idx < len(concept_lines) - 1 else 30
 
             # Vertical stem line from bottom of text cluster down to spine node
             stem_top = cur_y + 12
@@ -250,7 +263,7 @@ def create_timeline(output_path=None):
             draw.ellipse([cx - 4, stem_top - 4, cx + 4, stem_top + 4], fill=accent + (255,))
 
         else:
-            # LOWER MILESTONE (Poincaré 1890, Bendixson 1901, Birkhoff 1927, Smale 1965–1967)
+            # LOWER MILESTONE (Poincaré 1890, Bendixson 1901, Birkhoff 1927, Lorenz 1963)
             stem_bot = spine_y + 45
             draw.line([(cx, spine_y + 12), (cx, stem_bot)], fill=accent + (255,), width=3)
             # Anchor dot at bottom of stem
@@ -282,17 +295,21 @@ def create_timeline(output_path=None):
                 draw.text((cx - w_w / 2, cur_y), w_line, font=font_ref, fill=PROMINENT_SLATE)
                 cur_y += 28 if w_idx < len(work_lines) - 1 else 34
 
-            # Concept line (22pt bold NAVY #0f172a)
-            c_bbox = draw.textbbox((0, 0), m["concept"], font=font_concept)
-            c_w = c_bbox[2] - c_bbox[0]
-            draw.text((cx - c_w / 2, cur_y), m["concept"], font=font_concept, fill=NAVY)
-            cur_y += 30
+            # Concept line (single or multiline, 22pt bold NAVY #0f172a)
+            concept_lines = m["concept"].split("\n")
+            for c_idx, c_line in enumerate(concept_lines):
+                c_bbox = draw.textbbox((0, 0), c_line, font=font_concept)
+                c_w = c_bbox[2] - c_bbox[0]
+                draw.text((cx - c_w / 2, cur_y), c_line, font=font_concept, fill=NAVY)
+                cur_y += 28 if c_idx < len(concept_lines) - 1 else 30
 
     # Subtle outer framing border
     draw.rectangle([0, 0, W - 1, H - 1], outline=(226, 232, 240, 255), width=1)
 
     img.save(output_path, "PNG", optimize=True)
     print(f"Dynamical systems timeline saved to: {output_path} ({W}x{H} px)")
+
+
 
 if __name__ == "__main__":
     create_timeline()

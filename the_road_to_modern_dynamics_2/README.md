@@ -162,8 +162,9 @@ This project reconstructs the foundational theories, numerical simulations, and 
   * **1901**: Bendixson's theorem on planar limit cycles.
   * **1913**: Birkhoff's proof of Poincaré's Geometric Theorem.
   * **1927**: Birkhoff publishes *Dynamical Systems*.
-  * **1963**: Lorenz discovers the strange attractor and butterfly effect.
-  * **1967**: Smale introduces horseshoe dynamics and structural stability.
+  * **1954–1963**: Kolmogorov–Arnold–Moser (KAM) theory and persistence of invariant tori under perturbation.
+  * **1963**: Lorenz discovers sensitive dependence on initial conditions in deterministic nonperiodic flow.
+  * **1965–1967**: Smale introduces the horseshoe map and geometric foundations of chaos.
 * **Script**: `code/generate_dynamical_systems_timeline.py`
 
 ## 📁 Directory Structure
@@ -292,16 +293,20 @@ The test suite validates:
 10. **Birkhoff, G. D. (1912).** *Quelques théorèmes sur le mouvement des systèmes dynamiques.* Bulletin de la Société Mathématique de France, 40, 305–323. [Original paper: Numdam](https://www.numdam.org/item/BSMF_1912__40__305_0/)
 11. **Birkhoff, G. D. (1913).** *Proof of Poincaré's Geometric Theorem.* Transactions of the American Mathematical Society, 14(1), 14–22. [Original paper: AMS PDF](https://www.ams.org/journals/tran/1913-014-01/S0002-9947-1913-1500933-9/S0002-9947-1913-1500933-9.pdf)
 12. **Birkhoff, G. D. (1927).** *Dynamical Systems.* American Mathematical Society Colloquium Publications, Vol. IX. [Digitized edition: Internet Archive](https://archive.org/details/dynamicalsystems00birk) · [AMS DOI](https://doi.org/10.1090/COLL/009/01)
-13. **Lorenz, E. N. (1963).** *Deterministic Nonperiodic Flow.* Journal of the Atmospheric Sciences, 20(2), 130–141. [Original journal article](https://journals.ametsoc.org/view/journals/atsc/20/2/1520-0469_1963_020_0130_dnf_2_0_co_2.xml)
-14. **Smale, S. (1965).** *Diffeomorphisms with Many Periodic Points.* In *Differential and Combinatorial Topology (A Symposium in Honor of Marston Morse)*, S. S. Cairns (Ed.), Princeton Mathematical Series, Vol. 27, Princeton University Press, pp. 63–80. [Bibliographic record: Math-Net.Ru](https://www.mathnet.ru/php/archive.phtml?jrnid=mat&option_lang=eng&paperid=439&wshow=paper)
-15. **Adler, R. L., Konheim, A. G., & McAndrew, M. H. (1965).** *Topological Entropy.* Transactions of the American Mathematical Society, 114(2), 309–319. [AMS DOI](https://doi.org/10.1090/S0002-9947-1965-0175106-9)
-16. **Smale, S. (1967).** *Differentiable Dynamical Systems.* Bulletin of the American Mathematical Society, 73(6), 747–817. [AMS DOI](https://doi.org/10.1090/S0002-9904-1967-11798-1)
-17. **Oseledets, V. I. (1968).** *A Multiplicative Ergodic Theorem: Characteristic Lyapunov Exponents of Dynamical Systems.* Transactions of the Moscow Mathematical Society, 19, 197–231. [Bibliographic record and original Russian paper: Math-Net.Ru](https://www.mathnet.ru/php/archive.phtml?jrnid=mmo&option_lang=eng&paperid=214&wshow=paper)
-18. **Devaney, R. L. (1989).** *An Introduction to Chaotic Dynamical Systems* (2nd ed.). Redwood City: Addison-Wesley. [Library bibliographic record: KIT](https://katalog.bibliothek.kit.edu/bib/61005)
-19. **Barrow-Green, J. (1993).** *Poincaré and the Three Body Problem.* Ph.D. thesis, The Open University. [Open Research Online: ORO ID 57403](https://oro.open.ac.uk/57403/), [DOI: 10.21954/ou.ro.0000e03b](https://doi.org/10.21954/ou.ro.0000e03b)
-20. **Barrow-Green, J. (1994).** *Oscar II's Prize Competition and the Error in Poincaré's Memoir on the Three Body Problem.* Archive for History of Exact Sciences, 48, 107–131. [DOI: 10.1007/BF00374436](https://doi.org/10.1007/BF00374436)
-21. **Andersson, K. G. (1994).** *Poincaré's Discovery of Homoclinic Points.* Archive for History of Exact Sciences, 48, 133–147. [DOI: 10.1007/BF00374437](https://doi.org/10.1007/BF00374437)
-22. **Rågstedt, M.** *From Order to Chaos: The Prize Competition in Honour of King Oscar II.* Institut Mittag-Leffler. [Historical account: Institut Mittag-Leffler](https://www.mittag-leffler.se/about-us/history/prize-competition/)
+13. **Kolmogorov, A. N. (1954).** *On Conservation of Conditionally Periodic Motions for a Small Change in Hamilton's Function.* Doklady Akademii Nauk SSSR, 98(4), 527–530. [English translation: Harvard PDF](https://courses.seas.harvard.edu/climate/eli/Courses/APM203/2003fall/Kolmogorov-KAM-1954.pdf) · [CERN Document Server](https://cds.cern.ch/record/430016)
+14. **Moser, J. (1962).** *On Invariant Curves of Area-Preserving Mappings of an Annulus.* Nachrichten der Akademie der Wissenschaften in Göttingen, Mathematisch-Physikalische Klasse, II, 1–20. [Digitized original: Google Books](https://books.google.com/books/about/On_Invariant_Curves_of_Area_preserving_M.html?id=DH11VIdcMPcC)
+15. **Arnold, V. I. (1963).** *Proof of A. N. Kolmogorov's Theorem on the Preservation of Quasi-Periodic Motions under Small Perturbations of the Hamiltonian.* Russian Mathematical Surveys, 18(5), 9–36. [DOI: 10.1070/RM1963v018n05ABEH004130](https://doi.org/10.1070/RM1963v018n05ABEH004130)
+16. **Lorenz, E. N. (1963).** *Deterministic Nonperiodic Flow.* Journal of the Atmospheric Sciences, 20(2), 130–141. [Original journal article](https://journals.ametsoc.org/view/journals/atsc/20/2/1520-0469_1963_020_0130_dnf_2_0_co_2.xml)
+17. **Smale, S. (1965).** *Diffeomorphisms with Many Periodic Points.* In *Differential and Combinatorial Topology (A Symposium in Honor of Marston Morse)*, S. S. Cairns (Ed.), Princeton Mathematical Series, Vol. 27, Princeton University Press, pp. 63–80. [Bibliographic record: Math-Net.Ru](https://www.mathnet.ru/php/archive.phtml?jrnid=mat&option_lang=eng&paperid=439&wshow=paper)
+18. **Adler, R. L., Konheim, A. G., & McAndrew, M. H. (1965).** *Topological Entropy.* Transactions of the American Mathematical Society, 114(2), 309–319. [AMS DOI](https://doi.org/10.1090/S0002-9947-1965-0175106-9)
+19. **Smale, S. (1967).** *Differentiable Dynamical Systems.* Bulletin of the American Mathematical Society, 73(6), 747–817. [AMS DOI](https://doi.org/10.1090/S0002-9904-1967-11798-1)
+20. **Oseledets, V. I. (1968).** *A Multiplicative Ergodic Theorem: Characteristic Lyapunov Exponents of Dynamical Systems.* Transactions of the Moscow Mathematical Society, 19, 197–231. [Bibliographic record and original Russian paper: Math-Net.Ru](https://www.mathnet.ru/php/archive.phtml?jrnid=mmo&option_lang=eng&paperid=214&wshow=paper)
+21. **Devaney, R. L. (1989).** *An Introduction to Chaotic Dynamical Systems* (2nd ed.). Redwood City: Addison-Wesley. [Library bibliographic record: KIT](https://katalog.bibliothek.kit.edu/bib/61005)
+22. **Barrow-Green, J. (1993).** *Poincaré and the Three Body Problem.* Ph.D. thesis, The Open University. [Open Research Online: ORO ID 57403](https://oro.open.ac.uk/57403/), [DOI: 10.21954/ou.ro.0000e03b](https://doi.org/10.21954/ou.ro.0000e03b)
+23. **Barrow-Green, J. (1994).** *Oscar II's Prize Competition and the Error in Poincaré's Memoir on the Three Body Problem.* Archive for History of Exact Sciences, 48, 107–131. [DOI: 10.1007/BF00374436](https://doi.org/10.1007/BF00374436)
+24. **Andersson, K. G. (1994).** *Poincaré's Discovery of Homoclinic Points.* Archive for History of Exact Sciences, 48, 133–147. [DOI: 10.1007/BF00374437](https://doi.org/10.1007/BF00374437)
+25. **Dumas, H. S. (2014).** *The KAM Story: A Friendly Introduction to the Content, History, and Significance of Classical Kolmogorov–Arnold–Moser Theory.* World Scientific. [The KAM Story — World Scientific](https://doi.org/10.1142/8955)
+26. **Rågstedt, M.** *From Order to Chaos: The Prize Competition in Honour of King Oscar II.* Institut Mittag-Leffler. [Historical account: Institut Mittag-Leffler](https://www.mittag-leffler.se/about-us/history/prize-competition/)
 
 ---
 
