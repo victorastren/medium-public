@@ -73,6 +73,18 @@ First-principles mathematical models and scientific visualization suite for anal
 
 For setup, execution, and unit tests, please refer to the project [README](the_road_to_modern_dynamics/README.md).
 
+### [From Poincaré to Chaos: The Road to Modern Dynamics II](the_road_to_modern_dynamics_2/)
+First-principles mathematical models, numerical simulations, and geometric visualization suite for qualitative dynamics and chaos theory:
+- Planar qualitative dynamics: singular points (nodes, saddles, centers, foci) & the Poincaré–Bendixson theorem
+- Three-body problem: Euler collinear & Lagrange equilateral configurations, circular restricted 3-body problem (CRTBP), and Jacobi constant
+- Poincaré return maps & surfaces of section: reduction of continuous flows, Floquet multipliers, and orbital stability
+- Area-preserving twist maps & the Poincaré–Birkhoff theorem: fixed points on an annulus and alternating periodic orbits
+- Non-integrability & the homoclinic tangle: transverse invariant manifold intersections and chaotic dynamics
+- Conservative double pendulum: Lagrangian derivation, energy conservation, mixed regular/chaotic phase space, and Poincaré sections
+- Historical timeline: from Poincaré's prize memoir and Bendixson to Birkhoff, Lorenz, and Smale
+
+For setup, execution, and unit tests, please refer to the project [README](the_road_to_modern_dynamics_2/README.md).
+
 ### [Dynamical Systems: From Equations to Geometry](dynamical_systems_interpreting_motion/)
 Mathematical models and geometric visualization suite for dynamical systems theory and nonlinear mechanics:
 - Physical pendulum kinematics mapped into state space and directional vector fields

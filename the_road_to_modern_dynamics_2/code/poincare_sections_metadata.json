@@ -1,0 +1,110 @@
+{
+  "physical_parameters": {
+    "m1": 1.0,
+    "m2": 1.0,
+    "L1": 1.0,
+    "L2": 1.0,
+    "g": 1.0,
+    "friction": 0.0,
+    "forcing": 0.0
+  },
+  "energy_convention": "cal_E = E + 3 (measured relative to the downward equilibrium at cal_E = 0)",
+  "section_definition": "theta2 = 0, dot_theta2 > 0",
+  "canonical_coordinates": {
+    "q": "theta1 (rad)",
+    "p": "p1 = 2*dot_theta1 + cos(theta1)*dot_theta2"
+  },
+  "accessible_boundary": {
+    "equation": "p1^2 = 4 * [cal_E - 2*(1 - cos(theta1))]",
+    "derivation": "On the section theta2 = 0, the kinetic energy in canonical momenta is T = (p1^2 - 2*cos(theta1)*p1*p2 + 2*p2^2) / [2*(2 - cos(theta1)^2)]. The physical accessible boundary corresponds to the vanishing of the transverse velocity to the section, dot_theta2 = 0. From p = M*dot_theta, setting dot_theta2 = 0 yields p1 = 2*dot_theta1 and p2 = cos(theta1)*dot_theta1 = (cos(theta1)/2)*p1 (not p2 = 0). Substituting p2 = (cos(theta1)/2)*p1 into T yields T = p1^2 / 4. Equating this to the accessible kinetic energy cal_E - V(theta1, theta2=0) with V = 2*(1 - cos(theta1)) gives p1^2 = 4*[cal_E - 2*(1 - cos(theta1))]."
+  },
+  "classification_diagnostics": {
+    "geometric_manifold_diagnostic": "Local PCA singular-value aspect ratio sigma_2 / sigma_1 < 0.025 on normalized k-nearest neighbors (k=15). Quasiperiodic regular motion forms 1D invariant curves on the 2D section (producing an extreme singular value aspect ratio << 1), whereas chaotic orbits scatter across 2D area-filling regions (aspect ratio ~ 0.3 - 0.9).",
+    "dynamical_chaos_diagnostic": "Corroborated by independent finite-time Lyapunov exponent (FTLE) calculations integrating variational equations along candidate trajectories."
+  },
+  "integration_reproducibility": {
+    "integrator": "scipy.integrate.solve_ivp",
+    "method": "DOP853 (explicit Runge-Kutta order 8(5,3) Dormand-Prince)",
+    "tolerances": {
+      "rtol": 1e-11,
+      "atol": 1e-12
+    },
+    "section_crossing": "Zero-crossing event g(x) = theta2 = 0 with dot_theta2 > 0, located via dense quintic Hermite polynomial root-finding and Newton iterations to within |theta2| < 1e-13",
+    "closure_residual_definition": "Euclidean 2-norm ||P^3(x_0) - x_0||_2 in (theta1, p1) canonical plane",
+    "variational_monodromy": "Monodromy matrix DP^3 integrated by adjoining the 4x4 variational equations dPhi/dt = Df(x)*Phi along the trajectory and projecting onto the 2D Poincare section tangent plane",
+    "verification_vs_reproduction_note": "This metadata file documents numerical verification diagnostics (high-precision closure residuals ~ 5e-11, monodromy traces, and full-precision ODE determinants) calculated from the simulation. These values confirm the mathematical consistency of the classified periodic orbits and invariant structures. Independent numerical reproduction requires executing the underlying double pendulum simulation using the documented physical parameters, canonical Hamiltonian equations, DOP853 integrator, tolerances (rtol=1e-11, atol=1e-12), and dense root-finding."
+  },
+  "sampling_methodology_note": "The reported counts of regular and chaotic trajectories in each panel represent targeted initial conditions selected for visual clarity and illustrative coverage of distinct dynamical structures (such as nested invariant tori, resonance island chains, and chaotic seas). They should not be interpreted as percentages or estimates of phase-space area, since trajectories were sampled intentionally rather than uniformly with respect to the invariant Liouville measure.",
+  "panels": {
+    "Panel_A": {
+      "energy": 0.5,
+      "regime_character": "Predominantly regular motion with multiple distinct families of nested invariant curves",
+      "num_trajectories": 62,
+      "regular_trajectories": 58,
+      "chaotic_trajectories": 4,
+      "total_recorded_points": 30483,
+      "max_energy_drift": 9.228138364569816e-08
+    },
+    "Panel_B": {
+      "energy": 1.2,
+      "regime_character": "Mixed dynamics exhibiting regular KAM islands embedded within a developing chaotic sea",
+      "num_trajectories": 71,
+      "regular_trajectories": 45,
+      "chaotic_trajectories": 26,
+      "total_recorded_points": 28236,
+      "max_energy_drift": 1.1648610542813742e-07,
+      "period_3_resonance_chain": {
+        "period": 3,
+        "cycling_order": "E1 -> E2 -> E3 -> E1 under successive crossings of the Poincare return map P",
+        "elliptic_cycle": {
+          "successive_crossings": [
+            {"label": "E1", "index": 0, "theta1": 0.3309663114, "p1": -0.3418790302},
+            {"label": "E2", "index": 1, "theta1": -0.8204230150, "p1": -0.3248154683},
+            {"label": "E3", "index": 2, "theta1": 0.5407989773, "p1": -1.4612400454}
+          ],
+          "closure_residual_norm": 4.83e-11,
+          "rounded_numerical_matrix_DP3": [
+            [1.60269884, -1.93418871],
+            [0.34139654, 0.21193916]
+          ],
+          "trace": 1.81463800,
+          "determinant_calculated_from_rounded_matrix": 0.9999999792,
+          "internal_full_precision_determinant": 0.9999999835,
+          "area_preservation_deviation": 1.65e-08,
+          "precision_note": "The displayed matrix is rounded to 8 decimal places. The reported internal determinant (0.9999999835) was evaluated from the full-precision 64-bit float ODE solution. The difference of 4.3e-9 between the rounded matrix determinant (0.9999999792) and the internal determinant is an expected rounding artifact and preserves |Tr| < 2.",
+          "eigenvalues": ["0.90731900 + 0.42044293j", "0.90731900 - 0.42044293j"],
+          "eigenvalue_magnitudes": [0.9999999917, 0.9999999917],
+          "classification": "Elliptic (|Tr| < 2, stable periodic orbit surrounded by regular KAM island chain)"
+        },
+        "hyperbolic_cycle": {
+          "successive_crossings": [
+            {"label": "H1", "index": 0, "theta1": 0.0000000005, "p1": -0.3935285279},
+            {"label": "H2", "index": 1, "theta1": -0.8463692351, "p1": -0.8736380230},
+            {"label": "H3", "index": 2, "theta1": 0.8463692347, "p1": -0.8736380250}
+          ],
+          "closure_residual_norm": 5.09e-11,
+          "rounded_numerical_matrix_DP3": [
+            [1.11004699, -2.11359301],
+            [-0.10986236, 1.11004698]
+          ],
+          "trace": 2.22009397,
+          "determinant_calculated_from_rounded_matrix": 0.9999999927,
+          "internal_full_precision_determinant": 1.0000000001,
+          "area_preservation_deviation": 1.03e-10,
+          "precision_note": "The displayed matrix is rounded to 8 decimal places. The reported internal determinant (1.0000000001) was evaluated from the full-precision 64-bit float ODE solution. The difference of 7.4e-9 between the rounded matrix determinant (0.9999999927) and the internal determinant is an expected rounding artifact and preserves Tr > 2.",
+          "eigenvalues": [1.59192276, 0.62817117],
+          "classification": "Hyperbolic (Tr > 2, unstable saddle periodic orbit with reciprocal eigenvalues mu1 * mu2 = 1)"
+        }
+      }
+    },
+    "Panel_C": {
+      "energy": 2.0,
+      "regime_character": "Extensive chaotic regions with surviving regular island chains near the boundaries",
+      "num_trajectories": 66,
+      "regular_trajectories": 13,
+      "chaotic_trajectories": 53,
+      "total_recorded_points": 21164,
+      "max_energy_drift": 1.9613513257965565e-07
+    }
+  }
+}
