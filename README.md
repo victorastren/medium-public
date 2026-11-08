@@ -119,6 +119,18 @@ Astronomical data reduction, spatial statistics, and scientific visualization su
 
 For setup, execution, benchmark replication, and unit tests, please refer to the project [README](psf_spatial_interpolation/README.md).
 
+### [From a Nearly Uniform Universe to Galaxies and the Cosmic Web](from_primordial_fluctuations_to_cosmic_web/)
+Cosmological perturbation models, power-spectrum calculations, and scientific visualization suite for cosmic structure formation:
+- Jeans instability dispersion relation ($\omega^2 = c_s^2 k^2 - 4\pi G\rho_0$) & critical Jeans wavelength ($\lambda_J$)
+- Friedmann–Lemaître cosmic expansion in comoving vs. physical coordinates & spatial curvature ($K = +1, 0, -1$)
+- Causal structure: particle horizon, comoving Hubble radius $(aH)^{-1}$, and perturbation scale horizon entry
+- Cosmic inflation & Hubble exit of quantum fluctuations ($\lambda_{\mathrm{phys}}/(2\pi) = a/k$ crossing $R_H = c/H$), and primordial curvature power spectrum $\mathcal{P}_{\mathcal{R}}(k)$: scale-invariant Harrison–Zel'dovich ($n_s = 1$) vs. Planck 2018 inflationary tilt ($n_s \approx 0.965$)
+- Photon–baryon acoustic oscillations, Silk diffusion damping, and Planck 2018 CMB TT angular power spectrum
+- Decoupled cold-dark-matter logarithmic Mészáros growth vs. baryon acoustic oscillations, matter transfer function $T(k)$, and linear matter power spectrum $P_m(k, a)$
+- Nonlinear anisotropic collapse in the Zel'dovich approximation (sheets, filaments, nodes, and voids) & late-time $\Lambda\mathrm{CDM}$ growth factor $D(a)$ suppression
+
+For setup, execution, and unit tests, please refer to the project [README](from_primordial_fluctuations_to_cosmic_web/README.md).
+
 ---
 
 ## 📄 License
