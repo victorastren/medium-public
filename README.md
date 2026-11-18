@@ -131,6 +131,17 @@ Cosmological perturbation models, power-spectrum calculations, and scientific vi
 
 For setup, execution, and unit tests, please refer to the project [README](from_primordial_fluctuations_to_cosmic_web/README.md).
 
+### [The Golden Age of Black Hole Physics (1963–1974)](the_golden_age_of_black_hole_physics/)
+Relativistic numerical models, geodesic integrations, and scientific visualization suite for Kerr black holes and black-hole thermodynamics:
+- Oppenheimer–Snyder gravitational collapse ($\tau$ vs. $t$) & Lense–Thirring gravitomagnetic frame dragging ($\propto J/r^3$)
+- Petrov Type D classification, Goldberg–Sachs shear-free twisting congruences & Boyer–Lindquist oblate spheroidal geometry
+- Kerr black-hole anatomy ($r_+$, $r_-$, ergosphere $r_e(\theta)$, ring singularity) & $(\ell=2, m=2, n=0)$ quasinormal ringdown
+- Bound 3D Kerr geodesic orbits & nodal precession computed via `KerrGeoPy` (Schwarzschild vs. $a/m = 0.8$)
+- Penrose rotational energy extraction ($E_0 = E_1 + E_2$ with $E_1 < 0$) & Hawking classical area theorem ($dA \ge 0$)
+- Bekenstein Generalized Second Law ($\Delta S_{\mathrm{gen}} \ge 0$) & Hawking thermal radiation spectrum with greybody factors $\Gamma_\ell(\omega)$
+
+For setup, execution, and unit tests, please refer to the project [README](the_golden_age_of_black_hole_physics/README.md).
+
 ---
 
 ## 📄 License
