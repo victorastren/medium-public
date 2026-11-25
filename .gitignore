@@ -3,6 +3,7 @@ __pycache__/
 data/
 !validating_spatial_interpolation/data/
 !psf_spatial_interpolation/data/
+!the_road_to_modern_dynamics_3/data/
 geneva_spatial_interpolation/images/
 .DS_Store
 sources/

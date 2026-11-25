@@ -85,6 +85,17 @@ First-principles mathematical models, numerical simulations, and geometric visua
 
 For setup, execution, and unit tests, please refer to the project [README](the_road_to_modern_dynamics_2/README.md).
 
+### [Order and Chaos: The Road to Modern Dynamics III](the_road_to_modern_dynamics_3/)
+First-principles dynamical systems models, numerical integrations, IMCCE *La2010* orbital reconstructions, and animated visualization suite for Hamiltonian and dissipative chaos:
+- Homoclinic tangles, Smale’s horseshoe stretching-and-folding construction, Cantor invariant set ($\Lambda = \bigcap_{n \in \mathbb{Z}} F^n(R)$), and symbolic dynamics (shift map & topological entropy $\ln 2$)
+- Periodically forced undamped pendulum ($\ddot{\theta} + \sin\theta = A\cos(\Omega t)$): energy exchange, stroboscopic Poincaré maps, separatrix splitting, and homoclinic chaos
+- Integrable Hamiltonian systems, Liouville–Arnold invariant tori, and action–angle motion ($\omega_1/\omega_2 = 2/3$ periodic vs. $\omega_1/\omega_2 = \sqrt{2}$ quasiperiodic)
+- Kolmogorov–Arnold–Moser (KAM) theory: small divisors, resonance island chains, and persistence of deformed invariant curves across forcing amplitudes ($A = 0, 0.05, 0.20$)
+- Dissipative chaos in the Lorenz system ($\sigma = 10, \rho = 28, \beta = 8/3$): thermal convection origin, phase-space volume contraction ($\nabla \cdot \mathbf{f} = -41/3$), strange attractor, and sensitive dependence from a $10^{-6}$ perturbation
+- Secular planetary dynamics & chaos: two-mode linear Lagrange–Laplace oscillations ($e \in [0.06, 0.18]$), Earth–Mars secular resonance libration–circulation transitions, and *La2010a–d* orbital divergence (Laskar et al., 2011)
+
+For setup, execution, and unit tests, please refer to the project [README](the_road_to_modern_dynamics_3/README.md).
+
 ### [Dynamical Systems: From Equations to Geometry](dynamical_systems_interpreting_motion/)
 Mathematical models and geometric visualization suite for dynamical systems theory and nonlinear mechanics:
 - Physical pendulum kinematics mapped into state space and directional vector fields
