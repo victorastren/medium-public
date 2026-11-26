@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Master runner script to generate all 7 scientific infographics
+Master runner script to generate all 9 scientific infographics
 for the Navier-Stokes Blow-Up and Regularity article.
 
 Can be run directly from any directory:
@@ -25,6 +25,8 @@ from generate_energy_balance_infographic import generate_energy_balance_infograp
 from generate_energy_concentration_infographic import generate_energy_concentration_infographic
 from generate_scaling_limits_infographic import generate_scaling_limits_infographic
 from generate_shrinking_vortex_infographic import generate_shrinking_vortex_infographic
+from generate_clay_formulation_diagram import create_clay_formulation_diagram
+from generate_navier_stokes_discrete_self_similarity import create_discrete_self_similarity_figure
 
 FIGURE_GENERATORS = [
     ("1. Eulerian vs Lagrangian Derivative", "eulerian_vs_lagrangian_derivative.png", generate_material_derivative_infographic),
@@ -34,6 +36,8 @@ FIGURE_GENERATORS = [
     ("5. Finite Energy Concentration", "finite_energy_concentration.png", generate_energy_concentration_infographic),
     ("6. Scaling Limits & Supercriticality", "navier_stokes_scaling_limits.png", generate_scaling_limits_infographic),
     ("7. Shrinking Vortex Blow-Up", "navier_stokes_shrinking_vortex_blowup.png", generate_shrinking_vortex_infographic),
+    ("8. Clay Millennium Problem Formulation", "clay_millennium_problem_formulation.png", create_clay_formulation_diagram),
+    ("9. Discrete Self-Similarity Blow-Up", "navier_stokes_discrete_self_similarity.png", create_discrete_self_similarity_figure),
 ]
 
 

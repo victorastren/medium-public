@@ -9,7 +9,7 @@ Validates:
 1. Material derivative decomposition kinematics (local + advective).
 2. Vortex stretching identity: non-zero in 3D, identically vanishing in 2D.
 3. Scaling symmetry and energy-supercriticality scaling exponents in 3D.
-4. Isolated generation of all 7 scientific infographics to verify PNG format,
+4. Isolated generation of all 9 scientific infographics to verify PNG format,
    non-zero file size, valid magic header, and proper image dimensions.
 """
 
@@ -34,6 +34,8 @@ from generate_energy_balance_infographic import generate_energy_balance_infograp
 from generate_energy_concentration_infographic import generate_energy_concentration_infographic
 from generate_scaling_limits_infographic import generate_scaling_limits_infographic
 from generate_shrinking_vortex_infographic import generate_shrinking_vortex_infographic
+from generate_clay_formulation_diagram import create_clay_formulation_diagram
+from generate_navier_stokes_discrete_self_similarity import create_discrete_self_similarity_figure
 
 
 class TestNavierStokesPhysicsAndFigures(unittest.TestCase):
@@ -149,6 +151,16 @@ class TestNavierStokesPhysicsAndFigures(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp_dir:
             self._verify_single_figure(tmp_dir, generate_shrinking_vortex_infographic,
                                        "navier_stokes_shrinking_vortex_blowup.png", 2000, 1000)
+
+    def test_08_clay_formulation_generation(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            self._verify_single_figure(tmp_dir, create_clay_formulation_diagram,
+                                       "clay_millennium_problem_formulation.png", 2000, 1800)
+
+    def test_09_discrete_self_similarity_generation(self):
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            self._verify_single_figure(tmp_dir, create_discrete_self_similarity_figure,
+                                       "navier_stokes_discrete_self_similarity.png", 3000, 1200)
 
 
 if __name__ == '__main__':

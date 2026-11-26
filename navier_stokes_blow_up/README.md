@@ -6,7 +6,7 @@ This directory contains the standalone Python codebase and visualization suite s
 
 ## 🗺️ Visual Architecture & Scientific Figures
 
-The project provides self-contained, publication-grade scripts generating all 7 core scientific figures from first principles:
+The project provides self-contained, publication-grade scripts generating all 9 core scientific figures from first principles:
 
 ### 1. [Eulerian vs. Lagrangian Material Derivative](code/generate_material_derivative_infographic.py)
 ![Eulerian vs. Lagrangian Material Derivative](images/eulerian_vs_lagrangian_derivative.png)
@@ -73,6 +73,23 @@ The project provides self-contained, publication-grade scripts generating all 7 
 
 ---
 
+### 8. [Clay Millennium Problem Logical Structure](code/generate_clay_formulation_diagram.py)
+![Clay Millennium Problem Formulation](images/clay_millennium_problem_formulation.png)
+* **Official Four-Statement Structure**: Maps the Clay Mathematics Institute formulation separating unforced global smoothness (**A** on $\mathbb{R}^3$, **B** on $\mathbb{T}^3$, with $\mathbf{f} = 0$) from finite-time breakdown under admissible smooth forcing (**C** on $\mathbb{R}^3$, **D** on $\mathbb{T}^3$, with $\mathbf{f} \in C^\infty$, including $\mathbf{f} = 0$).
+* **September vs. November 2026 Proposals**: Distinguishes the proposed September 2026 forced construction (which would prove **C** and **D**) from the proposed November 2026 unforced construction of Alpöge and Buckmaster (which would disprove **A** and **B** and also prove **C** and **D**).
+* **Script**: `code/generate_clay_formulation_diagram.py`
+
+---
+
+### 9. [From Discrete Self-Similarity to Finite-Time Blow-Up](code/generate_navier_stokes_discrete_self_similarity.py)
+![From Discrete Self-Similarity to Finite-Time Blow-Up](images/navier_stokes_discrete_self_similarity.png)
+* **Discrete Self-Similar Scaling**: Illustrates backward discrete self-similarity in physical space across contracting spatial scales $\ell_{n+1} = e^{-S/2}\ell_n$, growing velocity amplitudes $A_{n+1} = e^{S/2}A_n$, and shrinking cycle durations $\Delta t_{n+1} = e^{-S}\Delta t_n$.
+* **Logarithmic-Time Convergence**: Visualizes convergence in logarithmic time $s = -\log(T - t)$ of the rescaled solution $\mathbf{U}$ to an exactly $S$-periodic profile $\mathbf{W}$ in the homogeneous $\dot{H}^1$ norm.
+* **Diverging Gradients with Finite Total Dissipation**: Shows $\|\nabla\mathbf{u}(t)\|_{L^2} \asymp (T-t)^{-1/4}$ diverging as $t \to T^-$ while the instantaneous dissipation rate remains integrable ($\int_0^T (T-t)^{-1/2}\,dt = 2\sqrt{T} < \infty$), leaving finite kinetic energy $E(T^-) < \infty$.
+* **Script**: `code/generate_navier_stokes_discrete_self_similarity.py`
+
+---
+
 ## 💻 Installation & Dependencies
 
 The visualization suite requires Python 3.9+ with standard scientific libraries:
@@ -101,14 +118,14 @@ pip install -r requirements.txt
 ## 🚀 Usage
 
 ### Generate All Scientific Figures
-To re-render all 7 high-resolution publication figures into `images/`:
+To re-render all 9 high-resolution publication figures into `images/`:
 
 ```bash
 python3 code/generate_all_figures.py
 ```
 
 ### Generate Figures Individually
-Each script is completely self-contained and accepts an optional `--output` flag:
+Each script is completely self-contained and accepts an optional output path argument:
 
 ```bash
 python3 code/generate_material_derivative_infographic.py
@@ -118,6 +135,8 @@ python3 code/generate_energy_balance_infographic.py
 python3 code/generate_energy_concentration_infographic.py
 python3 code/generate_scaling_limits_infographic.py
 python3 code/generate_shrinking_vortex_infographic.py
+python3 code/generate_clay_formulation_diagram.py
+python3 code/generate_navier_stokes_discrete_self_similarity.py
 ```
 
 ---
@@ -138,7 +157,7 @@ The test suite validates:
 1. **Material Derivative Kinematics**: Exact balance between total, local, and advective acceleration in 1D/2D nozzle flows.
 2. **2D Vortex Stretching Invariance**: Machine-precision cancellation $(\boldsymbol{\omega}\cdot\nabla)\mathbf{u} = 0$ for arbitrary planar vector fields.
 3. **Scaling Critical Exponents**: Lebesgue norm scaling $\|\mathbf{u}_\lambda\|_{L^p} = \lambda^{1 - 3/p} \|\mathbf{u}\|_{L^p}$ across dimension $d=3$.
-4. **Rendering Integrity**: Isolated generation of all 7 figures in temporary workspaces, confirming PNG magic headers, non-zero file sizes (> 40 KB), and minimum resolution requirements.
+4. **Rendering Integrity**: Isolated generation of all 9 figures in temporary workspaces, confirming PNG magic headers, non-zero file sizes (> 40 KB), and minimum resolution requirements.
 
 ---
 
@@ -152,6 +171,8 @@ The test suite validates:
 6. **OpenAI. (2026).** *On the Navier–Stokes Millennium Prize Problem.* OpenAI Research, 8 September 2026. [OpenAI Research Announcement](https://openai.com/index/navier-stokes-solution/).
 7. **OpenAI. (2026).** *Finite Time Blowup for Navier–Stokes.* Research preprint, September 2026. [OpenAI Proof PDF](https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf).
 8. **Clay Mathematics Institute. (2026).** *Navier–Stokes Announcement.* 11 September 2026. [Clay Mathematics Institute Announcement](https://www.claymath.org/news/navier-stokes-announcement/).
+9. **Alpöge, L., & Buckmaster, T. (2026).** *Finite-time blow-up for the Navier–Stokes equations.* Research preprint, 20 November 2026. [Paper and Lean formalization](https://github.com/tristanbuckmaster/navier-stokes/).
+10. **Tao, T. (2026).** *Unforced Euler singularity, unforced Navier–Stokes singularity, and the Generalized Riemann Hypothesis.* What's New, 20 November 2026. [Blog post](https://terrytao.wordpress.com/2026/11/20/unforced-euler-singularity-unforced-navier-stokes-singularity-and-the-generalized-riemann-hypothesis/).
 
 ---
 
